@@ -1,0 +1,47 @@
+#loginContainer {
+  width: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loginBtn {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  background-color: #639bf1;
+  border: none;
+}
+
+#loginBtn:hover {
+  background-color: blue;
+  transition: 0.5s;
+}
+
+#imgContainer {
+  height: 200px;
+  background-color: white;
+  background-image: url(../../assets/person.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#redirectToReg {
+  color: #639bf1;
+}
+
+#eyeIconLog {
+  margin-left: 275px;
+  margin-top: -65px;
+}
+
+#eyeIconLog:hover {
+  cursor: pointer;
+}

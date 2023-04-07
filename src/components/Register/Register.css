@@ -1,0 +1,28 @@
+#RegisterContainer {
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#RegisterContainer form {
+  width: 350px;
+}
+
+#submitBtn {
+  background-color: #639bf1;
+  border: none;
+}
+
+#submitBtn:hover {
+  background-color: blue;
+}
+
+#eyeIconReg {
+  margin-top: -65px;
+  margin-left: 325px;
+}

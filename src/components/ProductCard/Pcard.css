@@ -1,0 +1,22 @@
+#cart-icon {
+  margin-left: 3px;
+  font-size: 20px;
+}
+
+#add-to-cart-btn {
+  background-color: #639bf1;
+  border: none;
+  width: 100%;
+}
+#add-to-cart-btn:hover {
+  background-color: #3b5998;
+}
+
+span {
+  font-size: large;
+}
+
+#price-rating-container {
+  display: flex;
+  justify-content: space-between;
+}

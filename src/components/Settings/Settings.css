@@ -1,0 +1,23 @@
+#settingsContainer {
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#updateBtn {
+  margin-top: -25px;
+  background-color: #639bf1;
+  border: none;
+}
+#updateBtn:hover {
+  background-color: blue;
+}
+
+#note {
+  color: red;
+}

@@ -1,0 +1,27 @@
+#carouselContainer {
+  margin-top: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+img {
+  height: 300px;
+}
+
+#cards-container {
+  width: 100%;
+}
+
+#inner-card-container {
+  margin: 3% 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-top: 2%;
+}
