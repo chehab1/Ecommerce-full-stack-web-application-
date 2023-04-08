@@ -38,13 +38,13 @@ function NavBar() {
     //   </nav>
     // </div>
 
-    <div class="header">
-      <div class="container">
+    <div className="header">
+      <div className="container">
         <Link to="/" id="Link">
-          <h1 id="websiteName">Chéhab</h1>
+          <h1 id="websiteName">My Website</h1>
         </Link>
-        <div class="links">
-          <span class="icon">
+        <div className="links">
+          <span className="icon">
             <span></span>
             <span></span>
             <span></span>

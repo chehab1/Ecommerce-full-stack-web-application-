@@ -34,6 +34,7 @@ function Register() {
             type="email"
             className="form-control"
             placeholder="Enter email"
+            id="email"
           />
         </div>
         <div className="mb-3">
