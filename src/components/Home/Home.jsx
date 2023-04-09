@@ -35,7 +35,7 @@ function Home() {
       <div id="cards-container">
         <div id="inner-card-container">
           {a.map((i) => {
-            return <Pcard id="card"></Pcard>;
+            return <Pcard className="card"></Pcard>;
           })}
         </div>
       </div>

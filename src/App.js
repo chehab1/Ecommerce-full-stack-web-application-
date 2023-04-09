@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Footer from "./components/Footer/Footer";
+import ProductView from "./components/ProductView/ProductView";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Settings" element={<Settings />}></Route>
         <Route path="/*" element={<Settings />}></Route>
+        <Route path="/Product" element={<ProductView />}></Route>
       </Routes>
       <Footer />
     </>

@@ -5,6 +5,7 @@ import product1 from "../../assets/product1.jpeg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Pcard() {
   const p1 = {
@@ -22,7 +23,9 @@ export default function Pcard() {
   };
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={product1} />
+      <Link to="/Product22">
+        <Card.Img variant="top" src={product1} />
+      </Link>
       <Card.Body>
         <Card.Title>{p1.title}</Card.Title>
         <Card.Text>{p1.desc}</Card.Text>

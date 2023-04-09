@@ -1,0 +1,14 @@
+#productCarousel {
+  width: 40%;
+  justify-content: center;
+}
+
+.carouselImage {
+  width: 100%;
+}
+
+#productDetails {
+  border: 2px solid red;
+  padding: 3%;
+  display: flex;
+}

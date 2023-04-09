@@ -16,12 +16,12 @@ img {
 }
 
 #inner-card-container {
-  margin: 3% 10%;
+  margin: 5% 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .card {
-  margin-top: 2%;
+  margin: 10px 5px;
 }
