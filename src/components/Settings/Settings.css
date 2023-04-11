@@ -21,3 +21,9 @@
 #note {
   color: red;
 }
+
+@media (max-width: 390px) {
+  #note {
+    font-size: 12px;
+  }
+}

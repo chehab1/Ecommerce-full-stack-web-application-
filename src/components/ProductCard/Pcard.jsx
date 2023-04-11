@@ -24,7 +24,7 @@ export default function Pcard() {
   };
   return (
     <Card style={{ width: "18rem" }}>
-      <Link to="/Product/">
+      <Link to="/Product">
         <Card.Img variant="top" src={product1} />
       </Link>
       <Card.Body>
