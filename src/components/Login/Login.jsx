@@ -1,10 +1,14 @@
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { useState } from "react";
 
 function Login() {
-  const showPassword = () => {
+  const [visible, setVisible] = useState(true);
+
+  const passwordVisibility = () => {
+    setVisible((prev) => !prev);
     var y = document.createElement("div");
     console.log(y);
     var x = document.getElementById("passWord");
@@ -35,11 +39,20 @@ function Login() {
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" id="passWord" />
-          <FaEyeSlash
-            className="eye-icon"
-            id="eyeIconLog"
-            onClick={showPassword}
-          />
+          {visible && (
+            <FaEyeSlash
+              className="eye-icon"
+              id="eyeIconLog"
+              onClick={passwordVisibility}
+            />
+          )}
+          {!visible && (
+            <FaEye
+              className="eye-icon"
+              id="eyeIconLog"
+              onClick={passwordVisibility}
+            />
+          )}
         </Form.Group>
         <div className="d-grid">
           <button

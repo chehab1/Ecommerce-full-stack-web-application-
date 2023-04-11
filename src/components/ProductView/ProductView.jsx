@@ -66,7 +66,7 @@ const ProductView = () => {
                 fillColor={product.rating < 3 ? "red" : "orange"}
               ></Rating>{" "}
             </div>
-            <span>Price: {product.price} EGP</span>
+            <span>Price: ${product.price}</span>
             <div>
               <Button
                 variant="primary"
