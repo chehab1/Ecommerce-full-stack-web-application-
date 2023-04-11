@@ -20,9 +20,19 @@
 
 #submitBtn:hover {
   background-color: blue;
+  transition: 0.5s;
 }
 
 #eyeIconReg {
   margin-top: -65px;
   margin-left: 325px;
+}
+@media (max-width: 390px) {
+  #RegisterContainer form {
+    width: 250px;
+  }
+  #eyeIconReg {
+    margin-top: -65px;
+    margin-left: 225px;
+  }
 }

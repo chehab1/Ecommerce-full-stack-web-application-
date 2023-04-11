@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function Pcard() {
   const p1 = {
+    id: 1234,
     title: "Smart watch",
     desc: "The brand new smart watch with whole new design and features.",
     price: 100,
@@ -23,7 +24,7 @@ export default function Pcard() {
   };
   return (
     <Card style={{ width: "18rem" }}>
-      <Link to="/Product22">
+      <Link to="/Product/">
         <Card.Img variant="top" src={product1} />
       </Link>
       <Card.Body>

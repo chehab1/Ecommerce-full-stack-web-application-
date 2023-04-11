@@ -1,14 +1,28 @@
-#productCarousel {
-  width: 40%;
-  justify-content: center;
+/* #productCarousel {
+  min-width: 40%;
 }
+#productDetails {
+  margin-top: 2%;
+  display: flex;
+  align-content: space-between;
+}
+
+#details {
+  padding-left: 3%;
+  display: grid;
+}
+
+#descriptionSpan {
+  padding: 5px;
+  min-height: 100px;
+}
+
+#addButton {
+  width: 100px;
+  padding: 2px;
+  border: 0;
+} */
 
 .carouselImage {
   width: 100%;
-}
-
-#productDetails {
-  border: 2px solid red;
-  padding: 3%;
-  display: flex;
 }

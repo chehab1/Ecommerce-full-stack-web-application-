@@ -42,12 +42,20 @@ function Login() {
             onClick={showPassword}
           />
         </Form.Group>
-        <Button id="loginBtn" variant="primary" onClick={handleLogin}>
-          Login
-        </Button>
-        <Link id="redirectToReg" to="/Register">
-          Don't have an account?
-        </Link>
+        <div className="d-grid">
+          <button
+            className="btn btn-primary"
+            id="loginBtn"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        </div>
+        <div>
+          <Link id="redirectToReg" to="/Register">
+            Don't have an account?
+          </Link>
+        </div>
       </Form>
     </div>
   );

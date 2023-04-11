@@ -16,6 +16,8 @@ const a = [
   Pcard,
   Pcard,
   Pcard,
+  Pcard,
+  Pcard,
 ];
 
 function Home() {

@@ -1,6 +1,6 @@
 #loginContainer {
   width: auto;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -8,13 +8,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+#loginContainer form {
+  width: 300px;
+}
 
 #loginBtn {
-  text-align: center;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  width: 300px;
   background-color: #639bf1;
   border: none;
 }
@@ -44,4 +42,13 @@
 
 #eyeIconLog:hover {
   cursor: pointer;
+}
+
+@media (max-width: 390px) {
+  #loginContainer form {
+    width: 250px;
+  }
+  #eyeIconLog {
+    margin-left: 225px;
+  }
 }
