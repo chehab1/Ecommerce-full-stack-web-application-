@@ -5,11 +5,15 @@ import { Rating } from "react-simple-star-rating";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import { BsCheck2Circle } from "react-icons/bs";
 
 const ProductView = () => {
   const [disable, setDisable] = useState(false);
-  const [adding, setAdding] = useState("Add");
+  const [adding, setAdding] = useState("Add to");
+  const [tickIcon, setIcon] = useState(false);
+
   const handleClick = () => {
+    setIcon((prev) => !prev);
     setDisable(true);
     setAdding("Added");
   };
@@ -74,8 +78,9 @@ const ProductView = () => {
                 onClick={handleClick}
                 disabled={disable}
               >
-                {adding} to
-                <AiOutlineShoppingCart id="cart-icon" />
+                {adding}
+                {tickIcon && <BsCheck2Circle id="cart-icon" />}
+                {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
               </Button>
             </div>
           </div>

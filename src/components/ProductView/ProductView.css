@@ -43,3 +43,7 @@ hr {
     width: 100%;
   }
 }
+
+#cart-icon {
+  margin-top: -2px;
+}
