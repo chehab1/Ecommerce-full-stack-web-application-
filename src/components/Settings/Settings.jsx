@@ -1,5 +1,7 @@
 import "./Settings.css";
 import { FaEye } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Settings() {
   const showPassword = () => {
@@ -8,11 +10,24 @@ function Settings() {
     else x.type = "password";
   };
 
-  //dummy data
-  const fName = "chehab";
-  const lName = "yakoot";
-  const Email = "chehab@gmail.com";
-  const pass = "1234";
+  const [data, setData] = useState({});
+  const [error, setError] = useState(false);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/products");
+      if (response.status === 200) {
+        setData(response.data);
+      }
+    } catch {
+      setError(true);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(data);
   const handleChange = (e) => {
     e.preventDefault();
     alert("Account details successfully updated!");
@@ -28,7 +43,7 @@ function Settings() {
             id="first-name"
             type="text"
             className="form-control"
-            defaultValue={fName}
+            defaultValue={data.firstName}
           />
         </div>
         <div className="mb-3">
@@ -37,7 +52,7 @@ function Settings() {
             id="last-name"
             type="text"
             className="form-control"
-            defaultValue={lName}
+            defaultValue={data.lastName}
           />
         </div>
         <div className="mb-3">
@@ -46,7 +61,7 @@ function Settings() {
             id="email"
             type="email"
             className="form-control"
-            defaultValue={Email}
+            defaultValue={data.email}
           />
         </div>
         <div className="mb-3">
@@ -54,7 +69,7 @@ function Settings() {
           <input
             type="password"
             className="form-control"
-            defaultValue={pass}
+            defaultValue={data.password}
             id="passWord"
           />
           <FaEye className="eye-icon" id="eyeIconReg" onClick={showPassword} />

@@ -36,8 +36,8 @@ function Home() {
       </Carousel>
       <div id="cards-container">
         <div id="inner-card-container">
-          {a.map((i) => {
-            return <Pcard className="card"></Pcard>;
+          {a.map((i, index) => {
+            return <Pcard className="card" key={index}></Pcard>;
           })}
         </div>
       </div>
