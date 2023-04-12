@@ -9,7 +9,6 @@ function Login() {
 
   const passwordVisibility = () => {
     setVisible((prev) => !prev);
-    var y = document.createElement("div");
     var x = document.getElementById("passWord");
     if (x.type === "password") {
       x.type = "text";

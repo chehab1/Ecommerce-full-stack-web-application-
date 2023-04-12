@@ -1,9 +1,12 @@
 import "./Register.css";
 import { Link } from "react-router-dom";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 function Register() {
-  const showPassword = () => {
+  const [visible, setVisible] = useState(true);
+  const passwordVisibility = () => {
+    setVisible((prev) => !prev);
     var x = document.getElementById("passWord");
     if (x.type === "password") {
       x.type = "text";
@@ -45,7 +48,20 @@ function Register() {
             placeholder="Enter password"
             id="passWord"
           />
-          <FaEye className="eye-icon" id="eyeIconReg" onClick={showPassword} />
+          {visible && (
+            <FaEyeSlash
+              className="eye-icon"
+              id="eyeIconReg"
+              onClick={passwordVisibility}
+            />
+          )}
+          {!visible && (
+            <FaEye
+              className="eye-icon"
+              id="eyeIconReg"
+              onClick={passwordVisibility}
+            />
+          )}
         </div>
         <div className="d-grid">
           <button className="btn btn-primary" id="submitBtn">

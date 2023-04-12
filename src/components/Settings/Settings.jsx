@@ -1,13 +1,18 @@
 import "./Settings.css";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Settings() {
-  const showPassword = () => {
+  const [visible, setVisible] = useState(true);
+  const passwordVisibility = () => {
+    setVisible((prev) => !prev);
     var x = document.getElementById("passWord");
-    if (x.type === "password") x.type = "text";
-    else x.type = "password";
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
   };
 
   const [data, setData] = useState({});
@@ -72,7 +77,20 @@ function Settings() {
             defaultValue={data.password}
             id="passWord"
           />
-          <FaEye className="eye-icon" id="eyeIconReg" onClick={showPassword} />
+          {visible && (
+            <FaEye
+              className="eye-icon"
+              id="eyeIconReg"
+              onClick={passwordVisibility}
+            />
+          )}
+          {!visible && (
+            <FaEyeSlash
+              className="eye-icon"
+              id="eyeIconReg"
+              onClick={passwordVisibility}
+            />
+          )}
         </div>
         <div className="d-grid">
           <button
