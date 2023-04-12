@@ -6,8 +6,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BsCheck2Circle } from "react-icons/bs";
 
 export default function Pcard() {
+  const [tickIcon, setIcon] = useState(false);
   const p1 = {
     id: 1234,
     title: "Smart watch",
@@ -17,8 +19,9 @@ export default function Pcard() {
     color: "red",
   };
   const [disable, setDisable] = useState(false);
-  const [adding, setAdding] = useState("Add");
+  const [adding, setAdding] = useState("Add to");
   const handleClick = () => {
+    setIcon((prev) => !prev);
     setDisable(true);
     setAdding("Added");
   };
@@ -50,8 +53,9 @@ export default function Pcard() {
           onClick={handleClick}
           disabled={disable}
         >
-          {adding} to
-          <AiOutlineShoppingCart id="cart-icon" />
+          {adding}
+          {tickIcon && <BsCheck2Circle id="cart-icon" />}
+          {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
         </Button>
       </Card.Body>
     </Card>
