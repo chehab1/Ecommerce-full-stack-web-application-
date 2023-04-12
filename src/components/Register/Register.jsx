@@ -14,6 +14,25 @@ function Register() {
       x.type = "password";
     }
   };
+  const handleClick = () => {
+    const nameRegex = /^[a-zA-Z]+$/;
+    const passwordRegex = /^[a-zA-Z0-9]{8,16}$/;
+    const emailRegex = /^^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const firstName = document.getElementById("fName").value;
+    const lastName = document.getElementById("lName").value;
+    const password = document.getElementById("passWord").value;
+    const email = document.getElementById("email").value;
+    if (
+      nameRegex.test(firstName) &&
+      nameRegex.test(lastName) &&
+      passwordRegex.test(password) &&
+      emailRegex.test(email)
+    ) {
+      alert("Account created");
+    } else {
+      alert("invalid format");
+    }
+  };
 
   return (
     <div id="RegisterContainer">
@@ -25,11 +44,17 @@ function Register() {
             type="text"
             className="form-control"
             placeholder="First name"
+            id="fName"
           />
         </div>
         <div className="mb-3">
           <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last name"
+            id="lName"
+          />
         </div>
         <div className="mb-3">
           <label>Email address</label>
@@ -64,7 +89,11 @@ function Register() {
           )}
         </div>
         <div className="d-grid">
-          <button className="btn btn-primary" id="submitBtn">
+          <button
+            className="btn btn-primary"
+            id="submitBtn"
+            onClick={handleClick}
+          >
             Sign Up
           </button>
         </div>
