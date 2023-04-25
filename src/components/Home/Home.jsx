@@ -3,7 +3,6 @@ import photo1 from "../../assets/carousel2.png";
 import photo2 from "../../assets/carousel3.png";
 import photo3 from "../../assets/carousel4.png";
 import "./Home.css";
-
 import Pcard from "../ProductCard/Pcard";
 
 const a = [

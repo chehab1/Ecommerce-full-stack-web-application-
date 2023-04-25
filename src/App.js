@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Footer from "./components/Footer/Footer";
 import ProductView from "./components/ProductView/ProductView";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Settings" element={<Settings />}></Route>
         <Route path="/Product" element={<ProductView />}></Route>
         <Route path="*" element={<Home />}></Route>
+        <Route path="/Cart" element={<Cart></Cart>}></Route>
       </Routes>
       <Footer />
     </>

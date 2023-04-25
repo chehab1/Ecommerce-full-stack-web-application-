@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import { BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -12,6 +13,11 @@ function NavBar() {
           <h1 id="websiteName">My Website</h1>
         </Link>
         <div className="links">
+          <span>
+            <Link to="/Cart">
+              <BsFillCartFill className="cart-logo"></BsFillCartFill>
+            </Link>
+          </span>
           <span className="icon">
             <span></span>
             <span></span>
