@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { BsCheck2Circle } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ProductView = () => {
   const [disable, setDisable] = useState(false);
@@ -16,6 +17,8 @@ const ProductView = () => {
     setIcon((prev) => !prev);
     setDisable(true);
     setAdding("Added");
+    const toCartBtn = document.getElementById("goToCartBtn");
+    toCartBtn.style.visibility = "visible";
   };
   const product = {
     name: "Smart Watch",
@@ -83,6 +86,9 @@ const ProductView = () => {
                 {tickIcon && <BsCheck2Circle id="cart-icon" />}
                 {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
               </Button>
+              <Link to="/Cart">
+                <Button id="goToCartBtn">Checkout</Button>
+              </Link>
             </div>
           </div>
         </div>
