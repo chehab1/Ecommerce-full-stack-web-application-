@@ -18,6 +18,7 @@ const ProductView = () => {
     setAdding("Added");
   };
   const product = {
+    name: "Smart Watch",
     price: 3000,
     rating: 4,
     quantity: 5,
@@ -52,7 +53,7 @@ const ProductView = () => {
             </Carousel>
           </div>
           <div id="Pdetails" className="col-md-8 col-12">
-            <h1>Product Name</h1>
+            <h1>{product.name}</h1>
             <span id="descriptionSpan">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
               cumque cum natus ut velit et quo rem est illum, quam veniam
