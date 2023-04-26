@@ -17,7 +17,7 @@ function Register() {
   const handleClick = () => {
     const nameRegex = /^[a-zA-Z]+$/;
     const passwordRegex = /^[a-zA-Z0-9]{8,16}$/;
-    const emailRegex = /^^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegex = /^^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/;
     const firstName = document.getElementById("fName").value;
     const lastName = document.getElementById("lName").value;
     const password = document.getElementById("passWord").value;

@@ -4,8 +4,6 @@ import { BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const userName = "Chehab";
-
   return (
     <div className="header">
       <div className="container">
