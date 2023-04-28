@@ -1,10 +1,9 @@
 import "./Cart.css";
 import Card from "../Cart/ProductCardInCart/ProductCardInCart";
 
-const cards = [Card, Card, Card];
-
 const Cart = () => {
-  const itemsCounter = 1;
+  const cards = [Card, Card, Card, Card];
+  const itemsCounter = cards.length;
   return (
     <div className="container myContainer">
       <div>
