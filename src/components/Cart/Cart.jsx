@@ -12,10 +12,13 @@ const Cart = () => {
           {itemsCounter > 1 ? " items" : " item"})
         </span>
       </div>
-      <div>
+      <div className="cartSpace">
         {cards.map((i, index) => {
           return <Card key={index}></Card>;
         })}
+      </div>
+      <div className="checkout">
+        <input type="button" value="CHECKOUT" />
       </div>
     </div>
   );

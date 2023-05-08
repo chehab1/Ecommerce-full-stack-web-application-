@@ -1,0 +1,29 @@
+.quantityLogo {
+  margin-top: -5px;
+}
+
+.quantityLogo:hover {
+  cursor: pointer;
+  user-select: none;
+  color: blue;
+}
+
+.freeShipping {
+  font-size: 12px;
+  color: green;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+.trashContainer {
+  color: darkred;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.trashContainer:hover {
+  cursor: pointer;
+  color: blue;
+}

@@ -1,8 +1,26 @@
 .myContainer {
-  background-color: red;
+  background-color: white;
 }
 
 .cartSpan {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 500;
+}
+
+.cartSpace {
+  margin-top: 30px;
+}
+
+.checkout {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.checkout input {
+  color: white;
+  background-color: blue;
+  border: none;
+  height: 35px;
+  width: 200px;
+  font-weight: 100;
 }

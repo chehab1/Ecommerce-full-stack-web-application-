@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import { BsFillCartFill } from "react-icons/bs";
+import { BiCart } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -13,7 +13,7 @@ function NavBar() {
         <div className="links">
           <span>
             <Link to="/Cart">
-              <BsFillCartFill className="cart-logo"></BsFillCartFill>
+              <BiCart className="cart-logo"></BiCart>
             </Link>
           </span>
           <span className="icon">
