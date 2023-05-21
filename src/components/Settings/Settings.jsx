@@ -60,7 +60,7 @@ function Settings() {
             defaultValue={data.lastName}
           />
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label>Email address</label>
           <input
             id="email"
@@ -68,7 +68,7 @@ function Settings() {
             className="form-control"
             defaultValue={data.email}
           />
-        </div>
+        </div> */}
         <div className="mb-3">
           <label>Password</label>
           <input
