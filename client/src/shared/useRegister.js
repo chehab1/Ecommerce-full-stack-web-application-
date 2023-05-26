@@ -6,6 +6,9 @@ const useRegister = (submit, useDetails, setSubmit) => {
     try {
       const response = await axios.post("/register", useDetails);
       console.log(useDetails);
+      if (response.status == 200) {
+        alert("Register Success!");
+      }
     } catch (error) {
       console.log(error);
     } finally {

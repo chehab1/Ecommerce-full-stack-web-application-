@@ -1,12 +1,19 @@
+import "./Login.css";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import "./Login.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useState } from "react";
+import useLogin from "../../shared/useLogin";
+
+const userDetails = {}; //Object to be sent to backend
 
 function Login() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true); //Password visibility state
+  const [login, setLogin] = useState(false); //Login state
 
+  useLogin(login, userDetails, setLogin); // call custom hook to send data to backend
+
+  //Function to toggle password visibility
   const passwordVisibility = () => {
     setVisible((prev) => !prev);
     var x = document.getElementById("passWord");
@@ -16,14 +23,13 @@ function Login() {
       x.type = "password";
     }
   };
-  const handleLogin = () => {
-    let user = document.getElementById("userEmail");
-    let pass = document.getElementById("passWord");
-    if (user.value === "chehab" && pass.value === "1234") {
-      alert("Login Successfull");
-    } else {
-      alert("Invalid email or password");
-    }
+
+  //Function to handle login button
+  const handleLogin = (e) => {
+    e.preventDefault();
+    userDetails["email"] = document.getElementById("userEmail").value;
+    userDetails["password"] = document.getElementById("passWord").value;
+    setLogin(true);
   };
 
   return (
@@ -56,7 +62,7 @@ function Login() {
           <button
             className="btn btn-primary"
             id="loginBtn"
-            onClick={handleLogin}
+            onClick={(e) => handleLogin(e)}
           >
             Login
           </button>
