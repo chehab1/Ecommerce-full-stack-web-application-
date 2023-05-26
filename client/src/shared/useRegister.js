@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import axios from "../apis/axios";
 
-const useRegister = (submit, useDetails, setSubmit) => {
+const useRegister = (submit, userDetails, setSubmit) => {
   async function register() {
     try {
-      const response = await axios.post("/register", useDetails);
-      console.log(useDetails);
+      const response = await axios.post("/register", userDetails);
+      console.log(userDetails);
       if (response.status == 200) {
         alert("Register Success!");
       }

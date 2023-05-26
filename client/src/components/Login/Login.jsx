@@ -27,9 +27,17 @@ function Login() {
   //Function to handle login button
   const handleLogin = (e) => {
     e.preventDefault();
-    userDetails["email"] = document.getElementById("userEmail").value;
-    userDetails["password"] = document.getElementById("passWord").value;
-    setLogin(true);
+    if (
+      document.getElementById("userEmail").value === "" ||
+      document.getElementById("passWord").value === ""
+    ) {
+      alert("Please fill all the fields");
+    } else {
+      userDetails["email"] = document.getElementById("userEmail").value;
+      userDetails["password"] = document.getElementById("passWord").value;
+      setLogin(true);
+      window.location.href = "/Home";
+    }
   };
 
   return (
