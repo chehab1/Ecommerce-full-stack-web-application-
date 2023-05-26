@@ -2,9 +2,13 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-
+import useRegister from "../../shared/useRegister";
+const userDetails = {};
 function Register() {
   const [visible, setVisible] = useState(true);
+  const [submit, setSubmit] = useState(false);
+  useRegister(submit, userDetails, setSubmit);
+
   const passwordVisibility = () => {
     setVisible((prev) => !prev);
     var x = document.getElementById("passWord");
@@ -14,24 +18,15 @@ function Register() {
       x.type = "password";
     }
   };
-  const handleClick = () => {
-    const nameRegex = /^[a-zA-Z]+$/;
-    const passwordRegex = /^[a-zA-Z0-9]{8,16}$/;
-    const emailRegex = /^^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/;
-    const firstName = document.getElementById("fName").value;
-    const lastName = document.getElementById("lName").value;
-    const password = document.getElementById("passWord").value;
-    const email = document.getElementById("email").value;
-    if (
-      nameRegex.test(firstName) &&
-      nameRegex.test(lastName) &&
-      passwordRegex.test(password) &&
-      emailRegex.test(email)
-    ) {
-      alert("Account created");
-    } else {
-      alert("invalid format");
-    }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    userDetails["firstName"] = document.getElementById("fName").value;
+    userDetails.lastName = document.getElementById("lName").value;
+    userDetails.password = document.getElementById("passWord").value;
+    userDetails.email = document.getElementById("email").value;
+    console.log(userDetails);
+    setSubmit(true);
   };
 
   return (
@@ -92,7 +87,7 @@ function Register() {
           <button
             className="btn btn-primary"
             id="submitBtn"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e)}
           >
             Sign Up
           </button>
