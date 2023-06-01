@@ -10,7 +10,7 @@ registerRoute.post("/register", async (req, res) => {
     if (result.rows.length) {
       res.status(200).send(result.rows[0]);
     } else {
-      res.status(400);
+      res.status(404).send();
     }
   } catch (error) {
     res.send({ status: "error", message: "Something went wrong" });

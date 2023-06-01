@@ -4,22 +4,21 @@ import Card from "react-bootstrap/Card";
 import product1 from "../../assets/product1.jpeg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsCheck2Circle } from "react-icons/bs";
+import useAddToCart from "../../shared/useAddToCart";
+import UserContext from "../../contexts/userContext";
 
-export default function Pcard() {
+export default function Pcard({ product: p1 }) {
   const [tickIcon, setIcon] = useState(false);
-  const p1 = {
-    id: 1234,
-    title: "Smart watch",
-    desc: "The brand new smart watch with whole new design and features.",
-    price: 100,
-    rating: 2.4,
-    color: "red",
-  };
   const [disable, setDisable] = useState(false);
   const [adding, setAdding] = useState("Add to");
+  const navigate = useNavigate();
+
+  const { user } = useContext(UserContext);
+
+  useAddToCart(disable, p1.pid, user ? user.userid : -1);
   const handleClick = () => {
     setIcon((prev) => !prev);
     setDisable(true);
@@ -27,12 +26,14 @@ export default function Pcard() {
   };
   return (
     <Card style={{ width: "18rem" }}>
-      <Link to="/Product">
-        <Card.Img variant="top" src={product1} />
-      </Link>
+      <Card.Img
+        variant="top"
+        src={p1.imagepath}
+        onClick={() => navigate(`/product/${p1.pid}`)}
+      />
       <Card.Body>
-        <Card.Title>{p1.title}</Card.Title>
-        <Card.Text>{p1.desc}</Card.Text>
+        <Card.Title>{p1.pname}</Card.Title>
+        <Card.Text>{p1.psdesc}</Card.Text>
         <div id="price-rating-container">
           <Card.Text>
             Price: <span>${p1.price}</span>
@@ -44,7 +45,7 @@ export default function Pcard() {
             allowFraction
             readonly
             size={20}
-            fillColor={p1.color}
+            fillColor={p1.rating < 3 ? "red" : "orange"}
           ></Rating>
         </div>
         <Button

@@ -1,9 +1,12 @@
 import "./Cart.css";
+import { useState } from "react";
 import Card from "../Cart/ProductCardInCart/ProductCardInCart";
 
 const Cart = () => {
-  const cards = [Card, Card, Card, Card];
+  const [cards, setCards] = useState([]);
+
   const itemsCounter = cards.length;
+
   return (
     <div className="container myContainer">
       <div>

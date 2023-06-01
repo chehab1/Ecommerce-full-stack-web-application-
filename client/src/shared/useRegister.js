@@ -8,6 +8,9 @@ const useRegister = (submit, userDetails, setSubmit) => {
       console.log(userDetails);
       if (response.status == 200) {
         alert("Register Success!");
+        window.location.href = "/login";
+      } else {
+        alert("Registeration Failed!\nPlease try again later");
       }
     } catch (error) {
       console.log(error);

@@ -1,17 +1,21 @@
 import "./Login.css";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useLogin from "../../shared/useLogin";
+import UserContext from "../../contexts/userContext";
 
 const userDetails = {}; //Object to be sent to backend
 
 function Login() {
   const [visible, setVisible] = useState(true); //Password visibility state
   const [login, setLogin] = useState(false); //Login state
+  const navigate = useNavigate(); //Navigation hook
 
-  useLogin(login, userDetails, setLogin); // call custom hook to send data to backend
+  const { user, setUser } = useContext(UserContext); //User context
+
+  useLogin(login, userDetails, setLogin, setUser, navigate); // call custom hook to send data to backend
 
   //Function to toggle password visibility
   const passwordVisibility = () => {
@@ -36,7 +40,6 @@ function Login() {
       userDetails["email"] = document.getElementById("userEmail").value;
       userDetails["password"] = document.getElementById("passWord").value;
       setLogin(true);
-      window.location.href = "/Home";
     }
   };
 

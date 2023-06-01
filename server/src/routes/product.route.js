@@ -1,11 +1,12 @@
 const { Router } = require("express");
-const loginRoute = Router();
+const productRoute = Router();
 const { client } = require("../config");
 
-loginRoute.post("/login", async (req, res) => {
+productRoute.get("/product/:id", async (req, res) => {
   const connection = await client.connect();
+  let id = req.params.id;
   try {
-    const query = `SELECT * FROM users WHERE email='${req.body.email}' AND password='${req.body.password}';`;
+    const query = `SELECT * FROM products WHERE pid =${id};`;
     const result = await connection.query(query);
     if (result.rows.length) {
       res.status(200).send(result.rows[0]);
@@ -19,4 +20,4 @@ loginRoute.post("/login", async (req, res) => {
   }
 });
 
-module.exports = loginRoute;
+module.exports = productRoute;

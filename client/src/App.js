@@ -10,21 +10,27 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Footer from "./components/Footer/Footer";
 import ProductView from "./components/ProductView/ProductView";
 import Cart from "./components/Cart/Cart";
+import UserContext from "./contexts/userContext";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/Register" element={<Register />}></Route>
-        <Route path="/Login" element={<Login />}></Route>
-        <Route path="/Settings" element={<Settings />}></Route>
-        <Route path="/Product" element={<ProductView />}></Route>
-        <Route path="*" element={<Home />}></Route>
-        <Route path="/Cart" element={<Cart></Cart>}></Route>
-      </Routes>
-      <Footer />
+      <UserContext.Provider value={{ user, setUser }}>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Settings" element={<Settings />}></Route>
+          <Route path="/Product/:id" element={<ProductView />}></Route>
+          <Route path="*" element={<Home />}></Route>
+          <Route path="/Cart" element={<Cart></Cart>}></Route>
+        </Routes>
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 }

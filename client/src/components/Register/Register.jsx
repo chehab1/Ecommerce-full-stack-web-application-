@@ -36,7 +36,6 @@ function Register() {
       userDetails.lastName = document.getElementById("lName").value;
       userDetails.password = document.getElementById("passWord").value;
       userDetails.email = document.getElementById("email").value;
-      console.log(userDetails);
       setSubmit(true);
     } else {
       alert("Please fill in all fields correctly");

@@ -4,23 +4,12 @@ import photo2 from "../../assets/carousel3.png";
 import photo3 from "../../assets/carousel4.png";
 import "./Home.css";
 import Pcard from "../ProductCard/Pcard";
-
-const a = [
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-  Pcard,
-];
+import useProducts from "../../shared/useProducts";
+import { useState } from "react";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+  useProducts(setProducts);
   return (
     <>
       <Carousel id="carouselContainer">
@@ -36,8 +25,10 @@ function Home() {
       </Carousel>
       <div id="cards-container">
         <div id="inner-card-container">
-          {a.map((i, index) => {
-            return <Pcard className="card" key={index}></Pcard>;
+          {products.map((product, index) => {
+            return (
+              <Pcard className="card" key={index} {...{ product }}></Pcard>
+            );
           })}
         </div>
       </div>
