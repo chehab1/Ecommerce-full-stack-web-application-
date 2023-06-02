@@ -1,11 +1,14 @@
 import "./Cart.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Card from "../Cart/ProductCardInCart/ProductCardInCart";
+import useCart from "../../shared/useCart";
+import UserContext from "../../contexts/userContext";
 
 const Cart = () => {
   const [cards, setCards] = useState([]);
-
   const itemsCounter = cards.length;
+  const { user } = useContext(UserContext);
+  useCart(setCards, user ? user.userid : -1);
 
   return (
     <div className="container myContainer">
@@ -16,8 +19,8 @@ const Cart = () => {
         </span>
       </div>
       <div className="cartSpace">
-        {cards.map((i, index) => {
-          return <Card key={index}></Card>;
+        {cards.map((card, index) => {
+          return <Card key={index} {...{ card }}></Card>;
         })}
       </div>
       <div className="checkout">

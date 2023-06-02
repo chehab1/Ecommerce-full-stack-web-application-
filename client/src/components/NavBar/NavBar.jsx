@@ -12,7 +12,7 @@ function NavBar() {
         <Link to="/" id="Link">
           <h1 id="websiteName">My Website</h1>
         </Link>
-        {user && <span>Welcome, {user.fname}</span>}
+        {user && <span id="welcome">Welcome, {user.fname}</span>}
         <div className="links">
           <span>
             <Link to="/Cart">
@@ -38,10 +38,21 @@ function NavBar() {
                 <Link to="/Register">Register</Link>
               </li>
             )}
-
             <li>
               <Link to="/Settings">My account</Link>
             </li>
+            {user && (
+              <li>
+                <Link
+                  onClick={() => {
+                    sessionStorage.removeItem("user");
+                    window.location.reload();
+                  }}
+                >
+                  Logout
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

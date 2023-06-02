@@ -7,6 +7,7 @@ const loginRoute = require("./routes/login.route");
 const productsRoute = require("./routes/products.route");
 const productRoute = require("./routes/product.route");
 const imageRoute = require("./routes/image.route");
+const addToCartRoute = require("./routes/addToCart.route");
 const cartRoute = require("./routes/cart.route");
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use("/", loginRoute);
 app.use("/", productsRoute);
 app.use("/", productRoute);
 app.use("/", imageRoute);
+app.use("/", addToCartRoute);
 app.use("/", cartRoute);
 
 app.listen(4000, () => {

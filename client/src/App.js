@@ -11,11 +11,17 @@ import Footer from "./components/Footer/Footer";
 import ProductView from "./components/ProductView/ProductView";
 import Cart from "./components/Cart/Cart";
 import UserContext from "./contexts/userContext";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useEffect } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    if (sessionStorage.getItem("user")) {
+      setUser(JSON.parse(sessionStorage.getItem("user")));
+    }
+  }, []);
   return (
     <>
       <UserContext.Provider value={{ user, setUser }}>

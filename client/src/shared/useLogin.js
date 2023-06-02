@@ -13,6 +13,7 @@ const useLogin = (userLogin, userDetails, setLogin, setUser, navigate) => {
           response.data.lname;
         alert(msg);
         setUser(response.data);
+        sessionStorage.setItem("user", JSON.stringify(response.data));
         navigate("/");
       }
     } catch (error) {
