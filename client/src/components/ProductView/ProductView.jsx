@@ -1,13 +1,14 @@
 import "./ProductView.css";
-import photo from "../../assets/product1.jpeg";
 import Carousel from "react-bootstrap/Carousel";
 import { Rating } from "react-simple-star-rating";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { BsCheck2Circle } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import useProduct from "../../shared/useProduct";
+import UserContext from "../../contexts/userContext";
+import useAddToCart from "../../shared/useAddToCart";
 
 const ProductView = () => {
   const [disable, setDisable] = useState(false);
@@ -15,7 +16,9 @@ const ProductView = () => {
   const [tickIcon, setIcon] = useState(false);
   const [product, setProduct] = useState({});
   const id = useParams().id;
+  const { user } = useContext(UserContext);
   useProduct(id, setProduct);
+  useAddToCart(disable, id, user ? user.userid : -1);
   const handleClick = () => {
     setIcon((prev) => !prev);
     setDisable(true);
@@ -54,19 +57,23 @@ const ProductView = () => {
             </div>
             <span>Price: ${product.price}</span>
             <div>
-              <Button
-                variant="primary"
-                id="addBtn"
-                onClick={handleClick}
-                disabled={disable}
-              >
-                {adding}
-                {tickIcon && <BsCheck2Circle id="cart-icon" />}
-                {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
-              </Button>
-              <Link to="/Cart">
-                <Button id="goToCartBtn">Checkout</Button>
-              </Link>
+              {user && (
+                <Button
+                  variant="primary"
+                  id="addBtn"
+                  onClick={handleClick}
+                  disabled={disable}
+                >
+                  {adding}
+                  {tickIcon && <BsCheck2Circle id="cart-icon" />}
+                  {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
+                </Button>
+              )}
+              {user && (
+                <Link to="/Cart">
+                  <Button id="goToCartBtn">Checkout</Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

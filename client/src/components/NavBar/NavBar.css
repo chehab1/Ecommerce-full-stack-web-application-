@@ -148,3 +148,9 @@
 #welcome {
   color: white;
 }
+
+#username {
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+}

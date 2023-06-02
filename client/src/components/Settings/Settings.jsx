@@ -1,12 +1,19 @@
 import "./Settings.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
-import axios from "axios";
-
-const userDetails = {};
+import { useState, useContext } from "react";
+import UserContext from "../../contexts/userContext";
+import useUpdateUserData from "../../shared/useUpdateUserData";
 
 function Settings() {
   const [visible, setVisible] = useState(true); //password visibility state
+  const { user } = useContext(UserContext);
+  const [clicked, setClicked] = useState(false);
+
+  const fname = document.getElementById("first-name")?.value;
+  const lname = document.getElementById("last-name")?.value;
+  const password = document.getElementById("passWord")?.value;
+
+  useUpdateUserData(clicked, user ? user.userid : null, fname, lname, password);
   //password visibility function
   const passwordVisibility = () => {
     setVisible((prev) => !prev);
@@ -17,14 +24,10 @@ function Settings() {
       x.type = "password";
     }
   };
-
   //handle change function
   const handleChange = (e) => {
     e.preventDefault();
-    userDetails.firstName = document.getElementById("first-name").value;
-    userDetails.lastName = document.getElementById("last-name").value;
-    userDetails.password = document.getElementById("passWord").value;
-    console.log(userDetails);
+    setClicked(true);
   };
 
   return (
@@ -37,7 +40,7 @@ function Settings() {
             id="first-name"
             type="text"
             className="form-control"
-            defaultValue=""
+            defaultValue={user?.fname}
           />
         </div>
         <div className="mb-3">
@@ -46,7 +49,7 @@ function Settings() {
             id="last-name"
             type="text"
             className="form-control"
-            defaultValue=""
+            defaultValue={user?.lname}
           />
         </div>
         <div className="mb-3">
@@ -54,7 +57,7 @@ function Settings() {
           <input
             type="password"
             className="form-control"
-            defaultValue=""
+            defaultValue={user?.password}
             id="passWord"
           />
           {visible && (

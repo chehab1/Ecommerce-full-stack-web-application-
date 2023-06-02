@@ -12,20 +12,31 @@ const Cart = () => {
 
   return (
     <div className="container myContainer">
-      <div>
-        <span>
-          <span className="cartSpan">Cart </span>({itemsCounter}
-          {itemsCounter > 1 ? " items" : " item"})
-        </span>
-      </div>
-      <div className="cartSpace">
-        {cards.map((card, index) => {
-          return <Card key={index} {...{ card }}></Card>;
-        })}
-      </div>
-      <div className="checkout">
-        <input type="button" value="CHECKOUT" />
-      </div>
+      {itemsCounter !== 0 && (
+        <div>
+          <span>
+            <span className="cartSpan">Cart </span>({itemsCounter}
+            {itemsCounter > 1 ? " items" : " item"})
+          </span>
+        </div>
+      )}
+      {itemsCounter !== 0 && (
+        <div className="cartSpace">
+          {cards.map((card, index) => {
+            return <Card key={index} {...{ card }}></Card>;
+          })}
+        </div>
+      )}
+      {itemsCounter !== 0 && (
+        <div className="checkout">
+          <input type="button" value="Checkout" />
+        </div>
+      )}
+      {itemsCounter === 0 && (
+        <div>
+          <h1 id="empty">Cart is empty</h1>
+        </div>
+      )}
     </div>
   );
 };

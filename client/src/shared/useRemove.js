@@ -1,24 +1,26 @@
 import { useEffect } from "react";
 import axios from "../apis/axios";
 
-const useRemove = (remove, pid, userid) => {
+const useRemove = (Remove, pid, userid) => {
   async function remove() {
     try {
+      console.log(Remove);
       const response = await axios.delete(
         `/cart?productId=${pid}&userId=${userid}`
       );
       if (response.status === 200) {
-        alert("Removed from cart!");
+        window.location.reload();
       }
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
-    if (remove) {
+    if (Remove) {
       remove();
     }
-  }, [remove]);
+    // eslint-disable-next-line
+  }, [Remove]);
 };
 
 export default useRemove;

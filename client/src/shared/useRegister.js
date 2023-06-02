@@ -6,7 +6,7 @@ const useRegister = (submit, userDetails, setSubmit) => {
     try {
       const response = await axios.post("/register", userDetails);
       console.log(userDetails);
-      if (response.status == 200) {
+      if (response.status === 200) {
         alert("Register Success!");
         window.location.href = "/login";
       } else {
@@ -22,6 +22,7 @@ const useRegister = (submit, userDetails, setSubmit) => {
     if (submit) {
       register();
     }
+    // eslint-disable-next-line
   }, [submit]);
 };
 export default useRegister;

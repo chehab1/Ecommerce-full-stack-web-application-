@@ -24,3 +24,10 @@
   width: 200px;
   font-weight: 100;
 }
+
+#empty {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

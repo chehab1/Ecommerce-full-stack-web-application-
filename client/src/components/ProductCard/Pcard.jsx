@@ -1,7 +1,6 @@
 import "./Pcard.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import product1 from "../../assets/product1.jpeg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Rating } from "react-simple-star-rating";
 import { useState, useContext } from "react";
@@ -48,16 +47,18 @@ export default function Pcard({ product: p1 }) {
             fillColor={p1.rating < 3 ? "red" : "orange"}
           ></Rating>
         </div>
-        <Button
-          variant="primary"
-          id="add-to-cart-btn"
-          onClick={handleClick}
-          disabled={disable}
-        >
-          {adding}
-          {tickIcon && <BsCheck2Circle id="cart-icon" />}
-          {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
-        </Button>
+        {user && (
+          <Button
+            variant="primary"
+            id="add-to-cart-btn"
+            onClick={handleClick}
+            disabled={disable}
+          >
+            {adding}
+            {tickIcon && <BsCheck2Circle id="cart-icon" />}
+            {!tickIcon && <AiOutlineShoppingCart id="cart-icon" />}
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );

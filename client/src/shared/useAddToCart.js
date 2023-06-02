@@ -4,14 +4,11 @@ import axios from "../apis/axios";
 const useAddToCart = (disable, pid, userid = -1) => {
   async function addToCart() {
     try {
-      const response = await axios.post("/add-to-cart", {
+      await axios.post("/add-to-cart", {
         pid: pid,
         userid: userid,
         quantity: 1,
       });
-      if (response.status === 200) {
-        alert("Added to cart!");
-      }
     } catch (error) {
       console.log(error);
     }
@@ -20,6 +17,7 @@ const useAddToCart = (disable, pid, userid = -1) => {
     if (disable) {
       addToCart();
     }
+    // eslint-disable-next-line
   }, [disable]);
 };
 

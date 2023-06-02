@@ -9,6 +9,7 @@ const productRoute = require("./routes/product.route");
 const imageRoute = require("./routes/image.route");
 const addToCartRoute = require("./routes/addToCart.route");
 const cartRoute = require("./routes/cart.route");
+const settingsRoute = require("./routes/settings.route");
 
 app.use(cors());
 app.use(bodyparser.json());
@@ -19,6 +20,7 @@ app.use("/", productRoute);
 app.use("/", imageRoute);
 app.use("/", addToCartRoute);
 app.use("/", cartRoute);
+app.use("/", settingsRoute);
 
 app.listen(4000, () => {
   console.log("server is running on port 4000...");

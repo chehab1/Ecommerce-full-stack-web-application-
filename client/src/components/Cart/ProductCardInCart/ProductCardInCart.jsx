@@ -16,6 +16,9 @@ const ProductCardInCart = ({ card: productInfo }) => {
   const { user } = useContext(UserContext);
   const [remove, setRemove] = useState(false);
   useRemove(remove, productInfo.pid, user.userid);
+  const handleDelete = () => {
+    setRemove(true);
+  };
   return (
     <div className="container productContainerInCart">
       <div className="row">
@@ -38,7 +41,7 @@ const ProductCardInCart = ({ card: productInfo }) => {
         </div>
         <div className="col-1">
           <div className="trashContainer">
-            <BsTrash3 onClick={() => setRemove(true)}></BsTrash3>
+            <BsTrash3 onClick={handleDelete}></BsTrash3>
           </div>
         </div>
       </div>

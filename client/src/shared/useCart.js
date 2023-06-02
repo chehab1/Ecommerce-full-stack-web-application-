@@ -16,6 +16,7 @@ const useCart = (setCard, userid) => {
     if (userid) {
       cart();
     }
+    // eslint-disable-next-line
   }, [userid]);
 };
 

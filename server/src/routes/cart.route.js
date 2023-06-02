@@ -23,7 +23,7 @@ cartRoute.get("/cart/:userid", async (req, res) => {
 cartRoute.delete("/cart?", async (req, res) => {
   const connection = await client.connect();
   try {
-    const query = `DELETE FROM cart WHERE pid = ${req.query.productId} AND userid = ${req.query.userId};`;
+    const query = `DELETE FROM cart WHERE pid = ${req.query.productId} AND userid = ${req.query.userId} RETURNING *;`;
     const result = await connection.query(query);
     if (result.rows.length) {
       res.status(200).send();
