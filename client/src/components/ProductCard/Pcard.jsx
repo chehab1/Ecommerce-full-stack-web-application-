@@ -35,7 +35,7 @@ export default function Pcard({ product: p1 }) {
         <Card.Text>{p1.psdesc}</Card.Text>
         <div id="price-rating-container">
           <Card.Text>
-            Price: <span>${p1.price}</span>
+            Price: <span>{p1.price} L.E.</span>
           </Card.Text>
           <Rating
             id="rating"
